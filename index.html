@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+var src = "print('TEST')"; // PUT YOUR LUA SOURCE CODE HERE
+
+$.ajax({
+    type: "POST",
+    url: "https://fsociety.us/celery/compile/v2/",
+	headers: {
+	    "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
+	},
+	contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+    data: 'source='+src+'&key=testing_key',
+    dataType: 'text',
+    success: function(response)
+	{
+		document.getElementById("output").innerHTML = response;
+    },
+});
+</script>
+</head>
+<body>
+<p id="output"></p>
+</body>
+</html>
+
+
+
+
+
